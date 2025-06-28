@@ -14,10 +14,31 @@ class NoTransitionPage extends CustomTransitionPage {
 
 final GoRouter router = GoRouter(
   routes: [
+    // GoRoute(
+    //   path: '/',
+    //   pageBuilder:
+    //       (context, state) => NoTransitionPage(child: const LoginScreen()),
+    // ),
+    // GoRoute(
+    //   path: '/register',
+    //   pageBuilder:
+    //       (context, state) => NoTransitionPage(child: const RegisterScreen()),
+    // ),
     GoRoute(
+      // path: '/home',
       path: '/',
       pageBuilder:
           (context, state) => NoTransitionPage(child: const HomeScreen()),
+    ),
+    GoRoute(
+      path: '/orders',
+      pageBuilder:
+          (context, state) => NoTransitionPage(child: const OrdersScreen()),
+    ),
+    GoRoute(
+      path: '/profile',
+      pageBuilder:
+          (context, state) => NoTransitionPage(child: const ProfileScreen()),
     ),
   ],
 );

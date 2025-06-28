@@ -22,16 +22,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
     switch (index) {
       case 0:
+        // context.go('/home');
         context.go('/');
         break;
       case 1:
-        // context.go('/search');
+        context.go('/orders');
         break;
       case 2:
-        // context.go('/orders');
-        break;
-      case 3:
-        // context.go('/profile');
+        context.go('/profile');
         break;
     }
   }
@@ -46,18 +44,33 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: widget.currentIndex,
         onTap: _onItemTapped,
-        backgroundColor: isDarkMode ? Colors.grey[850] : Colors.white,
-        selectedItemColor: theme.colorScheme.primary,
-        unselectedItemColor: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+        backgroundColor: theme.scaffoldBackgroundColor,
+        selectedItemColor: isDarkMode ? Colors.white : Colors.black,
+        unselectedItemColor: theme.colorScheme.onSurface.withAlpha(
+          (0.6 * 255).toInt(),
+        ),
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Busca'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
+            icon: Icon(
+              widget.currentIndex == 0 ? Icons.home : Icons.home_outlined,
+            ),
+            label: 'Início',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              widget.currentIndex == 1
+                  ? Icons.shopping_bag
+                  : Icons.shopping_bag_outlined,
+            ),
             label: 'Pedidos',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+          BottomNavigationBarItem(
+            icon: Icon(
+              widget.currentIndex == 2 ? Icons.person : Icons.person_outline,
+            ),
+            label: 'Perfil',
+          ),
         ],
       ),
     );
