@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final bool showIcon;
+  final ValueChanged<String>? onChanged;
+
+  const SearchAppBar({super.key, this.showIcon = true, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return AppBar(
       backgroundColor: theme.colorScheme.surface,
       surfaceTintColor: theme.colorScheme.surface,
-      title: const SearchAppBarContent(),
-      centerTitle: false,
-      actions: [
-        IconButton(
-          icon: Icon(Icons.notifications, color: theme.colorScheme.onSurface),
-          onPressed: () {},
-        ),
-      ],
+      // automaticallyImplyLeading: false,
+      title: Row(
+        children: [
+          Expanded(flex: 7, child: SearchAppBarContent(onChanged: onChanged)),
+          if (showIcon)
+            Expanded(
+              flex: 1,
+              child: Center(
+                child: IconButton(
+                  icon: Icon(
+                    Icons.shopping_cart_outlined,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 
@@ -26,7 +39,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class SearchAppBarContent extends StatelessWidget {
-  const SearchAppBarContent({super.key});
+  final ValueChanged<String>? onChanged;
+
+  const SearchAppBarContent({super.key, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +51,7 @@ class SearchAppBarContent extends StatelessWidget {
     return SizedBox(
       height: 45,
       child: TextField(
+        onChanged: onChanged,
         decoration: InputDecoration(
           hintText: 'Buscar...',
           hintStyle: TextStyle(

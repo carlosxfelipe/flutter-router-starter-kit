@@ -8,7 +8,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomBottomNavigationBar(
       currentIndex: 2, // Índice correspondente à página de "Perfil"
-      child: Scaffold(appBar: CustomAppBar(), body: ProfileBody()),
+      child: Scaffold(appBar: ProfileAppBar(), body: ProfileBody()),
     );
   }
 }

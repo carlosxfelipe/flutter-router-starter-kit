@@ -8,7 +8,7 @@ class OrdersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomBottomNavigationBar(
       currentIndex: 1, // Índice correspondente à página de "Pedidos"
-      child: Scaffold(appBar: CustomAppBar(), body: OrdersBody()),
+      child: Scaffold(appBar: OrdersAppBar(), body: OrdersBody()),
     );
   }
 }

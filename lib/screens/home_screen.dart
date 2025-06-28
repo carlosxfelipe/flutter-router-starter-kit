@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomBottomNavigationBar(
       currentIndex: 0, // Índice correspondente à página de "Início"
-      child: Scaffold(appBar: CustomAppBar(), body: HomeBody()),
+      child: Scaffold(appBar: SearchAppBar(), body: HomeBody()),
     );
   }
 }
