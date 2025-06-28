@@ -20,7 +20,10 @@ class ProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.only(left: 16, top: 16),
-      child: Align(alignment: Alignment.topLeft, child: Text('Tela de Perfil')),
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: Text('Tela de Perfil', style: TextStyle(fontSize: 17.0)),
+      ),
     );
   }
 }

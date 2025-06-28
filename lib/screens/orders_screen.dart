@@ -22,7 +22,7 @@ class OrdersBody extends StatelessWidget {
       padding: EdgeInsets.only(left: 16, top: 16),
       child: Align(
         alignment: Alignment.topLeft,
-        child: Text('Tela de Pedidos'),
+        child: Text('Tela de Pedidos', style: TextStyle(fontSize: 17.0)),
       ),
     );
   }

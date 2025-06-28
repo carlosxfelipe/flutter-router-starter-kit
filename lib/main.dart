@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_router_starter_kit/theme/theme.dart';
 import 'package:flutter_router_starter_kit/routes/router.dart';
 
@@ -19,20 +18,9 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       routerConfig: router,
       builder: (context, child) {
-        final isDarkMode =
-            MediaQuery.of(context).platformBrightness == Brightness.dark;
+        final brightness = MediaQuery.of(context).platformBrightness;
 
-        final systemUiStyle = SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness:
-              isDarkMode ? Brightness.light : Brightness.dark,
-          systemNavigationBarColor:
-              isDarkMode ? Colors.grey[850]! : Colors.white,
-          systemNavigationBarIconBrightness:
-              isDarkMode ? Brightness.light : Brightness.dark,
-        );
-
-        SystemChrome.setSystemUIOverlayStyle(systemUiStyle);
+        AppTheme.setSystemUIOverlayStyle(brightness);
 
         return child!;
       },
