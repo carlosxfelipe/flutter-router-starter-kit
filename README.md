@@ -2,6 +2,10 @@
 
 Este projeto é um template base para projetos Flutter utilizando `go_router`.
 
+<p align="center">
+  <img src="./preview/Simulator Screen Recording - iPhone 16 Plus - 2025-07-03 at 18.46.48.gif" alt="Gravação de tela do app Flutter rodando no simulador iPhone 16 Plus" width="50%" />
+</p>
+
 ## Status
 
 Em desenvolvimento.
