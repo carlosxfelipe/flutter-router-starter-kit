@@ -18,11 +18,27 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 16, top: 16),
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: Text('Tela de Início', style: TextStyle(fontSize: 17.0)),
+    // final theme = Theme.of(context);
+    // final colorScheme = theme.colorScheme;
+    // final isDark = theme.brightness == Brightness.dark;
+
+    return Padding(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Tela de Início', style: TextStyle(fontSize: 17.0)),
+          SizedBox(height: 16),
+          Button(label: 'Botão 1', onPressed: () {}, icon: Icons.home),
+          SizedBox(height: 12),
+          StatefulButton(
+            label: 'Botão com Estado',
+            pressedLabel: 'Concluído',
+            onPressed: () {},
+            icon: Icons.check,
+            pressedIcon: Icons.check_circle,
+          ),
+        ],
       ),
     );
   }
